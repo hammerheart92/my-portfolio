@@ -1,0 +1,33 @@
+/* style.css */
+
+/* Base page reset */
+body {
+  margin: 0;
+  font-family: sans-serif;
+  line-height: 1.5;
+}
+
+/* Nav bar styling */
+nav {
+  background: #333;
+  padding: 10px;
+}
+nav a {
+  color: white;
+  text-decoration: none;
+  margin-right: 15px;
+}
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* Main content */
+.hero {
+  text-align: center;
+  padding: 40px 20px;
+}
+.hero img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
