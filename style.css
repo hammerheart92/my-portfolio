@@ -1,33 +1,66 @@
-/* style.css */
-/* Animated background gradient on the whole page */
-html, 
-body {
-  height: 100%;
-  margin: 0;
-  background: linear-gradient(-45deg, #1e3c72, #2a5298, #1e3c72, #2a5298);
+/* ===================================
+   1. Animated full-page gradient
+   =================================== */
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  background:
+    -webkit-linear-gradient(-45deg, #1e3c72, #2a5298, #1e3c72, #2a5298);
+  background:
+    linear-gradient(-45deg, #1e3c72, #2a5298, #1e3c72, #2a5298);
   background-size: 400% 400%;
-  animation: gradientShift 15s ease infinite;
+
+  /* animate on all browsers, including mobile WebKit */
+  -webkit-animation: gradientShift 15s ease infinite;
+          animation: gradientShift 15s ease infinite;
+
+  z-index: -1;
 }
 
+@-webkit-keyframes gradientShift {
+  0%   { background-position:   0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position:   0% 50%; }
+}
 @keyframes gradientShift {
   0%   { background-position:   0% 50%; }
   50%  { background-position: 100% 50%; }
   100% { background-position:   0% 50%; }
 }
-/* Base page reset */
-body {
+
+html, body {
   margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background: transparent;
+}
+
+/* ===================================
+   2. Base resets & fonts
+   =================================== */
+
+body {
   font-family: sans-serif;
   line-height: 1.5;
 }
 
-/* Nav bar styling */
+/* ===================================
+   3. Navigation bar
+   =================================== */
+
 nav {
   background: #333;
   padding: 10px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 nav a {
-  color: white;
+  color: #fff;
   text-decoration: none;
   margin-right: 15px;
 }
@@ -35,35 +68,32 @@ nav a:hover {
   text-decoration: underline;
 }
 
-/* Main content */
+/* ===================================
+   4. Hero section
+   =================================== */
+
 .hero {
-  text-align: center;
-  padding: 40px 20px;
-}
-.hero img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 8px;
-}
-/* --------------- Hero section --------------- */
-.hero {
- /* background: #f8f9fa; */
   text-align: center;
   padding: 80px 20px;
 }
+
 .hero-content {
   max-width: 800px;
   margin: 0 auto;
 }
+
 .hero h1 {
   font-size: 2.5rem;
   margin-bottom: 0.5em;
+  color: #fff;
 }
+
 .hero .subtagline {
   font-size: 1.25rem;
   margin-bottom: 1em;
-  color: #555;
+  color: rgba(255,255,255,0.9);
 }
+
 .hero .btn {
   display: inline-block;
   padding: 0.75em 1.5em;
@@ -75,4 +105,3 @@ nav a:hover {
 .hero .btn:hover {
   background: #0056b3;
 }
-/* -------------------------------------------- */
