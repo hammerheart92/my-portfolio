@@ -1,24 +1,19 @@
 /* ===================================
-   1. Animated full-page gradient
+   1. Animated full-page gradient on html
    =================================== */
 
-body::before {
-  content: "";
-  position: fixed;
-  top: 0; left: 0;
-  width: 100vw;
-  height: 100vh;
+html {
+  height: 100%;
+  margin: 0;
   background:
     -webkit-linear-gradient(-45deg, #1e3c72, #2a5298, #1e3c72, #2a5298);
   background:
     linear-gradient(-45deg, #1e3c72, #2a5298, #1e3c72, #2a5298);
   background-size: 400% 400%;
 
-  /* animate on all browsers, including mobile WebKit */
+  /* run on desktop & mobile WebKit */
   -webkit-animation: gradientShift 15s ease infinite;
           animation: gradientShift 15s ease infinite;
-
-  z-index: -1;
 }
 
 @-webkit-keyframes gradientShift {
@@ -32,24 +27,19 @@ body::before {
   100% { background-position:   0% 50%; }
 }
 
-html, body {
+/* make body transparent so html’s gradient shows through */
+body {
   margin: 0;
   padding: 0;
-  min-height: 100vh;
+  min-height: 100%;
   background: transparent;
-}
 
-/* ===================================
-   2. Base resets & fonts
-   =================================== */
-
-body {
   font-family: sans-serif;
   line-height: 1.5;
 }
 
 /* ===================================
-   3. Navigation bar
+   2. Navigation bar
    =================================== */
 
 nav {
@@ -69,10 +59,11 @@ nav a:hover {
 }
 
 /* ===================================
-   4. Hero section
+   3. Hero section
    =================================== */
 
 .hero {
+  /* no background here, so gradient stays visible */
   text-align: center;
   padding: 80px 20px;
 }
@@ -105,3 +96,9 @@ nav a:hover {
 .hero .btn:hover {
   background: #0056b3;
 }
+
+/* ===================================
+   4. (future sections…)
+   =================================== */
+
+/* #about, #projects, #contact etc. */
