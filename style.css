@@ -1,6 +1,25 @@
-/* ===================================
-   1. Animated full-page gradient on html
-   =================================== */
+
+   /*–– Hide every section by default ––*/
+   section {
+     display: none;
+   }
+
+   /*–– Make “Home” visible on first load ––*/
+   section#home {
+     display: block;
+   }
+
+   /*–– Show the section targeted by the URL hash ––*/
+   section:target {
+     display: block;
+   }
+
+   /*–– Optional: keep the nav sticky so it’s always there ––*/
+   nav {
+     position: sticky;
+     top: 0;
+     z-index: 20;
+   }
 
 html {
   height: 100%;
@@ -97,8 +116,80 @@ nav a:hover {
   background: #0056b3;
 }
 
-/* ===================================
-   4. (future sections…)
-   =================================== */
+/* Section wrappers */
+section {
+  padding: 60px 20px;
+}
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+}
 
-/* #about, #projects, #contact etc. */
+/* Headings */
+h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 1em;
+  color: #fff; /* or dark if background is light */
+}
+
+/* About */
+.about {
+  background: rgba(0,0,0,0.2); /* semi-transparent over your gradient */
+}
+.about p {
+  color: #f0f0f0;
+  line-height: 1.6;
+}
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+  margin: 1em 0 0;
+}
+.skills-list li {
+  background: rgba(255,255,255,0.1);
+  margin: 0.5em;
+  padding: 0.5em 1em;
+  border-radius: 4px;
+  color: #fff;
+}
+
+/* Projects */
+.projects {
+  background: rgba(0,0,0,0.3);
+}
+.project-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
+.project-card {
+  background: rgba(255,255,255,0.1);
+  padding: 20px;
+  border-radius: 6px;
+}
+.project-card h3 {
+  margin-top: 0;
+  color: #fff;
+}
+.project-card p {
+  color: #ddd;
+}
+.project-card a {
+  color: #007bff;
+  text-decoration: none;
+}
+.project-card a:hover {
+  text-decoration: underline;
+}
+
+/* Contact */
+.contact {
+  background: rgba(0,0,0,0.2);
+  text-align: center;
+}
+.contact p, .contact a {
+  color: #f0f0f0;
+}
